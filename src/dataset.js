@@ -181,6 +181,15 @@ var Dataset = (function() {
           shortestList,
           suggestions = [];
 
+      // if we are searching for *, show all elements in list
+      if (terms == '*') {
+        utils.each(that.itemHash, function(id, item) {
+          suggestions.push(item);
+        }
+        
+        return suggestions;
+      }
+
       // create a unique array of the first chars in
       // the terms this comes in handy when multiple
       // terms start with the same letter
