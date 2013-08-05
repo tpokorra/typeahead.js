@@ -189,6 +189,10 @@ var Dataset = (function() {
         
         return suggestions;
       }
+      
+      if (terms.toString()[0] == '*') {
+        terms = utils.tokenizeQuery(terms.toString().substring(1));
+      }
 
       // create a unique array of the first chars in
       // the terms this comes in handy when multiple
